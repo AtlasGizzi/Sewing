@@ -24,13 +24,13 @@ export class UiService {
     return this.showPatternTable
   }
   
-  Fabric (id: number, yardsFab: number, material: string, color: string,  location: string) 
+  Fabric (id: number, yardsFab: number, material: string, image: File,  location: string) 
   {
     const fabric = {
       id: Math.random(),
       yardsFab:yardsFab,
       material: material,
-      color:color,
+      image: image,
       location: location
 
     }
@@ -39,7 +39,7 @@ export class UiService {
   }
   //create post request here
   addFabric (fabric:Fabric){
-    this.http.post<Fabric>("http://localhost:3000/budgets", fabric)
+    this.http.post<Fabric>("http://localhost:3000/craft", fabric)
     .pipe(take(1))
     .subscribe({next:(fabric)=>{
       
@@ -59,7 +59,7 @@ export class UiService {
   }
   //create post request here
   addPattern (pattern:Pattern){
-    this.http.post<Pattern>("http://localhost:3000/budgets", pattern)
+    this.http.post<Pattern>("http://localhost:3000/craft", pattern)
     .pipe(take(1))
     .subscribe({next:(pattern)=>{
       
