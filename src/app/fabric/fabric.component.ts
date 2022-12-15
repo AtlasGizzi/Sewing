@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { UiService } from '../ui.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-fabric',
@@ -7,6 +8,7 @@ import { UiService } from '../ui.service';
   styleUrls: ['./fabric.component.css']
 })
 export class FabricComponent {
+  fabricForm!: NgForm;
 constructor(public ui:UiService) {
 
 }

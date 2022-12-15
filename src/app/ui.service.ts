@@ -39,11 +39,14 @@ export class UiService {
   }
   //create post request here
   addFabric (fabric:Fabric){
-    this.http.post<Fabric>("http://localhost:3000/craft", fabric)
+    this.http.post<Fabric>("http://localhost:8080/fabric", fabric)
     .pipe(take(1))
-    .subscribe({next:(fabric)=>{
-      
-    }})
+    .subscribe({next:(addedFabric)=>{
+      console.log(addedFabric)
+  
+    },
+    error:err=>{console.error(err)}
+  })
   }
 
 
@@ -59,7 +62,7 @@ export class UiService {
   }
   //create post request here
   addPattern (pattern:Pattern){
-    this.http.post<Pattern>("http://localhost:3000/craft", pattern)
+    this.http.post<Pattern>("http://localhost:8080/pattern", pattern)
     .pipe(take(1))
     .subscribe({next:(pattern)=>{
       
